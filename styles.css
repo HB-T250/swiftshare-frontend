@@ -99,6 +99,13 @@
           width: 180px;
           font-size: 1rem;
       }
+     .download-container{
+       padding: 5px;
+     }
+    .download-btn{
+      font-size: 0.9rem;
+      padding: 10px;
+    }
   }
   
   h1 {
@@ -306,20 +313,60 @@
       margin-top: 15px;
   }
   
-  .download-btn {
-      text-decoration: none;
-      width: 250px;
-      padding: 15px;
-      border: none;
-      border-radius: 40px;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 500;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
+ /* 📱 Make download container responsive */
+.download-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+/* Adjust file name display */
+.download-container .file {
+  width: 90%;
+  max-width: 400px;
+  word-break: break-word;
+  text-align: center;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+/* Style for download button */
+.download-btn {
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+}
+
+/* 🔁 Responsive scaling for small screens */
+@media (max-width: 600px) {
+  .download-container {
+    padding: 5px;
   }
+  .download-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
   
   #qrVideo {
       width: 250px;
@@ -348,29 +395,7 @@
       transition: width 0.3s ease-in-out;
   }
   
-  .download-container {
-      margin-top: 20px;
-  }
-  
-  .download-container .file {
-      border-radius: 10px;
-      padding: 12px 15px;
-      margin-top: 10px;
-      text-align: left;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      border: none;
-      border-radius: 40px;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 500;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-  }
+ 
   
   #reader {
       width: 100%;
@@ -403,4 +428,5 @@
   #reader * {
       box-sizing: border-box;
       overflow: hidden !important;
+
   }
