@@ -95,6 +95,10 @@
       h1 {
           font-size: 2rem;
       }
+    .name{
+      poaition: absolute;
+      top: 30%;
+    }
       .btn {
           width: 180px;
           font-size: 1rem;
@@ -430,3 +434,4 @@
       overflow: hidden !important;
 
   }
+
