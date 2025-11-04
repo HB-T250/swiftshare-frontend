@@ -66,7 +66,12 @@ function uploadFilesWithProgress(formData) {
 
 // ... (Rest of your event listeners and functions)
 // Handle click to select
-dropArea.addEventListener("click", () => fileInput.click());
+dropArea.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if(!fileInput.hasAttribute("data-busy")) {
+        fileInput.click();
+    }
+});
 
 // Drag & drop
 dropArea.addEventListener("dragover", (e) => {
@@ -84,7 +89,9 @@ dropArea.addEventListener("drop", (e) => {
 });
 
 fileInput.addEventListener("change", (e) => {
+    fileInput.setAttribute("data-busy", "true");
     handleFiles(e.target.files);
+    setTimeout(() => fileInput.removeAttribute("data-busy"), 500);
 });
 
 // Handle multiple files
@@ -323,4 +330,5 @@ document.body.addEventListener("click", function(e) {
 
         alert("Link and QR cleared. You can now send again.");
     }
+
 });
