@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Files - QuickShare</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <button class="btn" onclick="location.href='index.html'">← Home</button>
+    <h1>Send Files</h1>
+
+    <label class="upload-box" id="dropArea">
+    <p>Click or drag & drop up to <b>4 files</b></p>
+    <input type="file" id="fileInput" multiple />
+  </label>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="top-buttons">
+        <button class="btn1" id="clearAll">Clear All</button>
+        <button class="btn1" id="sendBtn">Send</button>
+    </div>
+
+    <div class="result-container" id="resultContainer">
+        <div id="uploadProgressContainer" style="display: none; width: 80%; max-width: 400px; margin: 20px auto; text-align: center;">
+            <p id="uploadProgressText" style="margin-bottom: 5px;">Uploading... 0%</p>
+            <div style="height: 10px; background: #eee; border-radius: 10px; overflow: hidden;">
+                <div id="uploadProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #007bff, #00c6ff); transition: width 0.3s ease-in-out;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="js/send.js"></script>
+</body>
+
+</html>

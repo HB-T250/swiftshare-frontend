@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receive Files - QuickShare</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+
+<body>
+    <button class="btn" onclick="location.href='index.html'">← Home</button>
+    <div class="receive-container">
+        <h1>Receive Files</h1>
+        <p class="subtitle">Paste the link or scan a QR code to start receiving</p>
+
+        <div class="receive-box">
+            <input type="text" id="receiveLink" placeholder="Paste link here..." />
+            <button id="receiveBtn" class="btn">Receive</button>
+        </div>
+
+        <div class="or-divider">
+            <span>OR</span>
+        </div>
+
+        <div class="scan-section">
+            <button id="scanBtn" class="btn scan-btn">Scan QR Code</button>
+            <div id="reader" style="width: 100%; max-width: 320px; margin: 20px auto; display: none;"></div>
+        </div>
+
+        <div id="messageContainer" class="result-container" style="display: none; margin-top: 20px;"></div>
+
+        <div id="receiveProgress" class="progress-container" style="display: none;">
+            <div class="progress-bar" id="progressBar"></div>
+            <p id="progressText">Receiving files...</p>
+        </div>
+
+        <div id="downloadContainer" class="download-container"></div>
+    </div>
+
+    <script src="js/receive.js"></script>
+</body>
+
+
+</html>
