@@ -67,9 +67,15 @@ function uploadFilesWithProgress(formData) {
 // ... (Rest of your event listeners and functions)
 // Handle click to select
 dropArea.addEventListener("click", (e) => {
+    E.preventDefault();
     e.stopPropagation();
-    if(!fileInput.hasAttribute("data-busy")) {
+    if(!fileInput.dataset.open) {
+        fileInput.dataset.open = "true";
         fileInput.click();
+
+        setTimeout(() => {
+            delete fileInput.dataset.open;
+        }, 1000);
     }
 });
 
@@ -89,9 +95,9 @@ dropArea.addEventListener("drop", (e) => {
 });
 
 fileInput.addEventListener("change", (e) => {
-    fileInput.setAttribute("data-busy", "true");
-    handleFiles(e.target.files);
-    setTimeout(() => fileInput.removeAttribute("data-busy"), 500);
+    if(e.target.files && e.target.files.length > 0) {
+        handleFiles(e.target.files);
+    }
 });
 
 // Handle multiple files
@@ -332,3 +338,4 @@ document.body.addEventListener("click", function(e) {
     }
 
 });
+
